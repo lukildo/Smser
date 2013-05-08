@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/dark_blue"
+    android:padding="8dip"
+    >
+
+    <TextView android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Hauptmenü"
+        android:gravity="center_horizontal"
+        android:textSize="@dimen/font_large"
+        android:textColor="@color/light_blue"
+        android:paddingBottom="16dip"
+        />
+
+        <Button
+            android:id="@+id/btnSpam"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="spam"
+            android:text="SMS spammen" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="funktion2"
+            android:text="Funktion 2" />
+
+</LinearLayout>
