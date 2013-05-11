@@ -3,6 +3,7 @@ package com.example.smser;
 import android.app.Activity;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -181,6 +182,10 @@ public class Spam extends Activity
         {
         	message.replaceAll("<n>", String.valueOf(i));
         	sms.sendTextMessage(phoneNumber, null, message, sentPI, deliveredPI);
+        	ContentValues values = new ContentValues();
+        	values.put("address", phoneNumber);
+        	values.put("body", message);
+        	getContentResolver().insert(Uri.parse("content://sms/sent"), values);
         }
         	
         

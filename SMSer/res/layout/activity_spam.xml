@@ -44,7 +44,7 @@
 
         <Button
             android:id="@+id/btnContacts"
-            android:layout_width="52dp"
+            android:layout_width="45dp"
             android:layout_height="34dp"
             android:padding="10dp"
             android:background="@drawable/android_button" />
