@@ -166,8 +166,8 @@ public class Spam extends Activity
 				switch (getResultCode())
 				{
 				    case Activity.RESULT_OK:
-					    Toast.makeText(getBaseContext(), "SMS gesendet", 
-					    		Toast.LENGTH_SHORT).show();
+//					    Toast.makeText(getBaseContext(), "SMS delivered", 
+//					    		Toast.LENGTH_SHORT).show();
 					    break;
 				    case Activity.RESULT_CANCELED:
 					    Toast.makeText(getBaseContext(), "SMS not delivered", 
