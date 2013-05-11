@@ -14,7 +14,7 @@
         android:gravity="center_horizontal"
         android:textSize="@dimen/font_large"
         android:textColor="@color/light_green"
-        android:paddingBottom="16dip"
+        android:paddingBottom="16dp"
         />
 
     <TextView
@@ -24,15 +24,32 @@
         android:text="Nummer:"
         android:textColor="@color/light_green"
         />
-    
-    <EditText
-        android:id="@+id/txtPhoneNo"
-        android:layout_width="match_parent"
+
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@color/white"
-        android:textColor="@color/black"
-        android:ems="10"
-        android:inputType="phone" />
+        android:orientation="horizontal" >
+
+        <EditText
+            android:id="@+id/txtPhoneNo"
+            android:layout_width="282dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@color/white"
+            android:ems="10"
+            android:inputType="phone"
+            android:textColor="@color/black" >
+            
+        </EditText>
+
+        <Button
+            android:id="@+id/btnContacts"
+            android:layout_width="52dp"
+            android:layout_height="34dp"
+            android:padding="10dp"
+            android:background="@drawable/android_button" />
+
+    </LinearLayout>
 
     <TextView
         android:id="@+id/counter"

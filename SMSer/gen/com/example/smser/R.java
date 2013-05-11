@@ -34,16 +34,18 @@ public final class R {
         public static final int font_small=0x7f050003;
     }
     public static final class drawable {
-        public static final int ic_launcher=0x7f020000;
+        public static final int android_button=0x7f020000;
+        public static final int ic_launcher=0x7f020001;
     }
     public static final class id {
-        public static final int action_settings=0x7f090007;
-        public static final int btnSendSMS=0x7f090006;
+        public static final int action_settings=0x7f090008;
+        public static final int btnContacts=0x7f090003;
+        public static final int btnSendSMS=0x7f090007;
         public static final int btnSpam=0x7f090000;
         public static final int button2=0x7f090001;
-        public static final int countSlider=0x7f090004;
-        public static final int counter=0x7f090003;
-        public static final int txtMessage=0x7f090005;
+        public static final int countSlider=0x7f090005;
+        public static final int counter=0x7f090004;
+        public static final int txtMessage=0x7f090006;
         public static final int txtPhoneNo=0x7f090002;
     }
     public static final class layout {

@@ -6,7 +6,11 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.ContactsContract;
+import android.provider.ContactsContract.Contacts;
 import android.telephony.SmsManager;
 import android.view.View;
 import android.widget.Button;
@@ -18,11 +22,12 @@ import android.widget.Toast;
 
 public class Spam extends Activity 
 {
-	Button btnSendSMS;
-	EditText txtPhoneNo;
-	EditText txtMessage;
+	Button btnSendSMS, btnContacts;;
+	EditText txtPhoneNo, txtMessage;
 	TextView counter;
 	SeekBar countSlider;
+	
+	private static final int CONTACT_RESULT = 1;
 	
     @Override
     public void onCreate(Bundle savedInstanceState) 
@@ -33,8 +38,10 @@ public class Spam extends Activity
         counter = (TextView) findViewById(R.id.counter);
         countSlider = (SeekBar) findViewById(R.id.countSlider);
         btnSendSMS = (Button) findViewById(R.id.btnSendSMS);
+        btnContacts = (Button) findViewById(R.id.btnContacts);
         txtPhoneNo = (EditText) findViewById(R.id.txtPhoneNo);
         txtMessage = (EditText) findViewById(R.id.txtMessage);
+       
         
         countSlider.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
 
@@ -78,9 +85,43 @@ public class Spam extends Activity
                 else
                 	Toast.makeText(getBaseContext(), "Nummer und Nachricht eintragen!", Toast.LENGTH_SHORT).show();
             }
-        });        
+        });
+        
+        
+        btnContacts.setOnClickListener(new View.OnClickListener() 
+        {
+            public void onClick(View v) 
+            {            	
+            	Intent contactPickerIntent = new Intent(Intent.ACTION_PICK, Contacts.CONTENT_URI);  
+                startActivityForResult(contactPickerIntent, CONTACT_RESULT);  
+            }
+        });
+        
+         
+        
+        
     }
     
+    @Override 
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {  
+        if (resultCode == RESULT_OK && requestCode == CONTACT_RESULT) {  
+                Uri result = data.getData();
+                String id = result.getLastPathSegment();  
+                
+                Cursor cursorPhone = getContentResolver().query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI,
+                        new String[]{ContactsContract.CommonDataKinds.Phone.NUMBER},
+                        ContactsContract.CommonDataKinds.Phone.CONTACT_ID + " = ? AND " + ContactsContract.CommonDataKinds.Phone.TYPE + " = " + ContactsContract.CommonDataKinds.Phone.TYPE_MOBILE,
+                        new String[]{id},null);
+         
+                if (cursorPhone.moveToFirst()) {
+                    String contactNumber = cursorPhone.getString(cursorPhone.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
+                    txtPhoneNo.setText(contactNumber);
+                }
+         
+                cursorPhone.close();
+        }
+            
+    } 
 
     private void sendSMS(String phoneNumber, String message, int count)
     {      
