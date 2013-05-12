@@ -23,7 +23,7 @@ import android.widget.Toast;
 
 public class Spam extends Activity 
 {
-	Button btnSendSMS, btnContacts;;
+	Button btnSendSMS, btnContacts;
 	EditText txtPhoneNo, txtMessage;
 	TextView counter;
 	SeekBar countSlider;
@@ -43,16 +43,12 @@ public class Spam extends Activity
         txtPhoneNo = (EditText) findViewById(R.id.txtPhoneNo);
         txtMessage = (EditText) findViewById(R.id.txtMessage);
        
-        
         countSlider.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
-
 			@Override
 			public void onProgressChanged(SeekBar arg0, int arg1, boolean arg2) {
 				if(arg1 == 0)
 					countSlider.setProgress(1);
 				counter.setText("Anzahl: " + String.valueOf(countSlider.getProgress()));
-				
-				
 			}
 
 			@Override
@@ -64,7 +60,6 @@ public class Spam extends Activity
 			public void onStopTrackingTouch(SeekBar arg0) {
 				
 			}
-        	
         });
                 
         btnSendSMS.setOnClickListener(new View.OnClickListener() 
@@ -72,7 +67,8 @@ public class Spam extends Activity
             public void onClick(View v) 
             {            	
             	String phoneNo = txtPhoneNo.getText().toString();
-            	String message = txtMessage.getText().toString();             	
+            	String message = txtMessage.getText().toString();  
+            	
                 if (phoneNo.length() >0 && message.length() >0)
                 {
                 	btnSendSMS.setEnabled(false);
@@ -80,14 +76,11 @@ public class Spam extends Activity
                 	txtPhoneNo.setEnabled(false);
                 	txtMessage.setEnabled(false);
                 	sendSMS(phoneNo, message, countSlider.getProgress());
-                	 
                 }
-                               
                 else
                 	Toast.makeText(getBaseContext(), "Nummer und Nachricht eintragen!", Toast.LENGTH_SHORT).show();
             }
         });
-        
         
         btnContacts.setOnClickListener(new View.OnClickListener() 
         {
@@ -97,10 +90,6 @@ public class Spam extends Activity
                 startActivityForResult(contactPickerIntent, CONTACT_RESULT);  
             }
         });
-        
-         
-        
-        
     }
     
     @Override 
@@ -130,12 +119,9 @@ public class Spam extends Activity
     	String DELIVERED = "SMS_DELIVERED";
     	
         PendingIntent sentPI = PendingIntent.getBroadcast(this, 0, new Intent(SENT), 0);
-        
         PendingIntent deliveredPI = PendingIntent.getBroadcast(this, 0, new Intent(DELIVERED), 0);
     	
-
         registerReceiver(new BroadcastReceiver(){
-
 			@Override
 			public void onReceive(Context arg0, Intent arg1) {
 				switch (getResultCode())
