@@ -39,10 +39,10 @@ public final class R {
     }
     public static final class id {
         public static final int action_settings=0x7f090008;
+        public static final int btn2=0x7f090001;
         public static final int btnContacts=0x7f090003;
         public static final int btnSendSMS=0x7f090007;
         public static final int btnSpam=0x7f090000;
-        public static final int button2=0x7f090001;
         public static final int countSlider=0x7f090005;
         public static final int counter=0x7f090004;
         public static final int txtMessage=0x7f090006;

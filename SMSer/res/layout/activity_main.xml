@@ -2,9 +2,9 @@
 
 <ScrollView
 	xmlns:android="http://schemas.android.com/apk/res/android"
-	android:background="@color/dark_blue"
 	android:layout_width="fill_parent"
-	android:layout_height="fill_parent" >
+	android:layout_height="fill_parent"
+	android:background="@color/dark_blue" >
 	
 	<LinearLayout
 	    android:layout_width="match_parent"
@@ -13,27 +13,27 @@
 	    android:padding="8dip" >
 
 	    <TextView 
+	        android:text="Hauptmenü"
 	        android:layout_width="match_parent"
 	        android:layout_height="wrap_content"
-	        android:text="Hauptmenü"
 	        android:gravity="center_horizontal"
 	        android:textSize="@dimen/font_large"
 	        android:textColor="@color/light_blue"
-	        android:paddingBottom="16dip" />
+	        android:paddingBottom="16dp" />
 	
         <Button
             android:id="@+id/btnSpam"
+            android:text="SMS spammen"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="spam"
-            android:text="SMS spammen" />
+            android:onClick="spam" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/btn2"
+            android:text="Funktion 2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="funktion2"
-            android:text="Funktion 2" />
+            android:onClick="funktion2" />
 	
 	</LinearLayout>
 </ScrollView>

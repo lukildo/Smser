@@ -2,9 +2,9 @@
 
 <ScrollView
 	xmlns:android="http://schemas.android.com/apk/res/android"
-	android:background="@color/dark_green"
 	android:layout_width="fill_parent"
-	android:layout_height="fill_parent" >
+	android:layout_height="fill_parent"
+	android:background="@color/dark_green" >
 	
 	<LinearLayout
 	    android:layout_width="match_parent"
@@ -13,82 +13,102 @@
 	    android:padding="8dip" >
 	
 	    <TextView
+	        android:text="SMS Spam"
 	        android:layout_width="match_parent"
 	        android:layout_height="wrap_content"
 	        android:gravity="center_horizontal"
-	        android:paddingBottom="16dp"
-	        android:text="SMS Spam"
+	        android:textSize="@dimen/font_large"
 	        android:textColor="@color/light_green"
-	        android:textSize="@dimen/font_large" />
-	
-	    <TextView
+	        android:paddingBottom="16dp" />
+	    
+	    <LinearLayout
 	        android:layout_width="match_parent"
 	        android:layout_height="wrap_content"
-	        android:text="Nummer:"
-	        android:textColor="@color/light_green"
-	        android:textSize="@dimen/font_medium" />
+	        android:orientation="vertical"
+	        android:paddingBottom="8dp" >
+	
+		    <TextView
+		        android:text="Nummer:"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:textSize="@dimen/font_medium"
+		        android:textColor="@color/light_green" />
+		
+		    <LinearLayout
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:orientation="horizontal" >
+		
+		        <EditText
+		            android:id="@+id/txtPhoneNo"
+		            android:layout_width="0dp"
+		            android:layout_height="wrap_content"
+		            android:layout_weight="1"
+		            android:textColor="@color/black"
+		            android:background="@color/white"
+		            android:ems="10"
+		            android:inputType="phone" />
+		
+		        <Button
+		            android:id="@+id/btnContacts"
+		            android:layout_width="52dp"
+		            android:layout_height="34dp"
+		            android:layout_weight="0"
+		            android:background="@drawable/android_button" />
+		    </LinearLayout>
+	    </LinearLayout>
 	
 	    <LinearLayout
 	        android:layout_width="match_parent"
 	        android:layout_height="wrap_content"
-	        android:orientation="horizontal" >
-	
-	        <EditText
-	            android:id="@+id/txtPhoneNo"
-	            android:layout_width="0dp"
-	            android:layout_height="wrap_content"
-	            android:layout_gravity="center"
-	            android:layout_weight="1"
-	            android:background="@color/white"
-	            android:ems="10"
-	            android:inputType="phone"
-	            android:textColor="@color/black" />
-	
-	        <Button
-	            android:id="@+id/btnContacts"
-	            android:layout_width="52dp"
-	            android:layout_height="34dp"
-	            android:background="@drawable/android_button"
-	            android:padding="10dp" />
+	        android:orientation="vertical"
+	        android:paddingBottom="8dp" >
+	        
+		    <TextView
+		        android:id="@+id/counter"
+		        android:text="Anzahl: 1"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:textColor="@color/light_green"
+		        android:textSize="@dimen/font_medium" />
+		
+		    <SeekBar
+		        android:id="@+id/countSlider"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:max="10"
+		        android:progress="1" />
 	    </LinearLayout>
 	
-	    <TextView
-	        android:id="@+id/counter"
+	    <LinearLayout
 	        android:layout_width="match_parent"
 	        android:layout_height="wrap_content"
-	        android:text="Anzahl: 1"
-	        android:textColor="@color/light_green"
-	        android:textSize="@dimen/font_medium" />
+	        android:orientation="vertical"
+	        android:paddingBottom="8dp" >
 	
-	    <SeekBar
-	        android:id="@+id/countSlider"
-	        android:layout_width="match_parent"
-	        android:layout_height="wrap_content"
-	        android:max="10"
-	        android:progress="1" />
-	
-	    <TextView
-	        android:layout_width="match_parent"
-	        android:layout_height="wrap_content"
-	        android:text="Nachricht"
-	        android:textColor="@color/light_green"
-	        android:textSize="@dimen/font_medium" />
-	
-	    <EditText
-	        android:id="@+id/txtMessage"
-	        android:layout_width="match_parent"
-	        android:layout_height="wrap_content"
-	        android:background="@color/white"
-	        android:ems="10"
-	        android:inputType="textMultiLine"
-	        android:textColor="@color/black" />
+		    <TextView
+		        android:text="Nachricht"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:textSize="@dimen/font_medium"
+		        android:textColor="@color/light_green" />
+		
+		    <EditText
+		        android:id="@+id/txtMessage"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:textColor="@color/black"
+		        android:background="@color/white"
+		        android:ems="10"
+		        android:inputType="textMultiLine" />
+	    </LinearLayout>
 	
 	    <Button
 	        android:id="@+id/btnSendSMS"
+	        android:text="Start spamming"
 	        android:layout_width="match_parent"
 	        android:layout_height="wrap_content"
-	        android:onClick="startActivityA"
-	        android:text="Start spamming" />
+	        android:onClick="startActivityA" />
 	        
     </LinearLayout>
 </ScrollView>
